@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tour of Camelopard: the fast sprint board for Jira</title>
+<meta name="description" content="See Camelopard at work: board views, live search, quick filters, the filters panel, the issue detail panel, planned sprints, and a large board of 300 issues across many columns.">
+<meta name="author" content="Yann Robert">
+<link rel="canonical" href="https://yannrobert.github.io/camelopard/tour.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tour of Camelopard">
+<meta property="og:description" content="Board views, search, filters, the detail panel and planned sprints, in pictures.">
+<meta property="og:url" content="https://yannrobert.github.io/camelopard/tour.html">
+<meta property="og:image" content="https://yannrobert.github.io/camelopard/tour/detail.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<nav class="top"><a href="./">Home</a><a href="tour.html" aria-current="page">Tour</a><a href="https://github.com/YannRobert/camelopard">GitHub</a></nav>
+<main>
+  <header>
+    <h1>Tour</h1>
+    <p class="lede">Camelopard at work on a sprint board: views, search, filters and the detail of each issue.</p>
+  </header>
+
+  <figure>
+    <video src="tour/tour.webm" poster="tour/board.png" width="1440" height="900" controls autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption>From light to dark, switching views, searching, filtering, reading a few issues in both layouts, then a planned sprint.</figcaption>
+  </figure>
+
+  <div class="shots">
+    <section class="shot">
+      <div class="text"><h2>Light or dark</h2><p>Dark or light in one click, and the browser remembers the choice.</p></div>
+      <img src="tour/board-light.png" width="1440" height="900" loading="lazy" alt="The board in the light theme.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Board views</h2><p>A board with many columns is split into views, Dev, QA or All, each with its own key and its issue count.</p></div>
+      <img src="tour/view-qa.png" width="1440" height="900" loading="lazy" alt="The QA view, showing only the columns from Ready for QA onwards.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Search as you type</h2><p>Every word narrows the board while it is typed: key, summary, assignee, epic, labels, type, status or priority.</p></div>
+      <img src="tour/search.png" width="1440" height="900" loading="lazy" alt="The board narrowed to the issues matching the word author.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Quick filters</h2><p>Jira's own quick filters, one click each, plus a person picker. The choice is kept in the address, so a reload or a shared link shows the same thing.</p></div>
+      <img src="tour/quick-filter.png" width="1440" height="900" loading="lazy" alt="The board narrowed by a quick filter.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Filters</h2><p>Status, reporter, type, priority and epic in one panel, each value counted against the other criteria.</p></div>
+      <img src="tour/criteria.png" width="1440" height="900" loading="lazy" alt="The filters panel open over the board, with counts beside every value.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>By reporter</h2><p>Pick a reporter and the board keeps only the issues they raised.</p></div>
+      <img src="tour/reporter.png" width="1440" height="900" loading="lazy" alt="The board filtered on one reporter.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Issue detail</h2><p>Click a card: its fields, description, links, attachments, comments and history open beside the board, without leaving it.</p></div>
+      <img src="tour/detail.png" width="1440" height="900" loading="lazy" alt="The detail panel of an issue: status, type, priority, people, epic, sprint and description.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Down to the comments</h2><p>The panel scrolls apart from the board, and its index jumps straight to links, attachments, comments or history.</p></div>
+      <img src="tour/detail-scrolled.png" width="1440" height="900" loading="lazy" alt="The detail panel scrolled down to the comments.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Detail at the bottom</h2><p>On a wide screen the detail can sit under the board instead, in three columns.</p></div>
+      <img src="tour/detail-bottom.png" width="1440" height="900" loading="lazy" alt="The detail panel docked at the bottom, in three columns.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Active and planned sprints</h2><p>The sprint's name opens the list of active and planned sprints with their timing. A planned sprint is laid out in the same columns.</p></div>
+      <img src="tour/sprints.png" width="1440" height="900" loading="lazy" alt="The sprint list with an Active and a Planned group.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Small board or very large one</h2><p>A board of sixteen columns and three hundred issues stays readable: each role picks the columns it works on as a view, here the supplier's, and filters narrow it further. The board's owner decided its layout in Jira; how you see it is up to you, in your own configuration, with no Jira admin rights needed.</p></div>
+      <img src="tour/wide-view.png" width="1920" height="1080" loading="lazy" alt="A large board shown through its Supplier view: only the columns the supplier works on.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Just as fast</h2><p>However large the board, an issue opens instantly: everything comes from the local copy.</p></div>
+      <img src="tour/wide-detail.png" width="1920" height="1080" loading="lazy" alt="The detail panel open on the large board.">
+    </section>
+  </div>
+</main>
+<footer>
+  © 2026 Yann Robert. Camelopard is released under the <a href="https://github.com/YannRobert/camelopard/blob/develop/LICENSE">MIT license</a>.
+  It is not affiliated with or endorsed by Atlassian. Jira is a registered trademark of Atlassian.
+</footer>
+</body>
+</html>
