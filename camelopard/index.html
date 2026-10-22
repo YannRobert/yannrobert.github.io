@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Camelopard: a fast sprint board for Jira Server and Data Center</title>
-<meta name="description" content="Camelopard is a blazing-fast alternative to the Jira web UI for your sprint board. A small local proxy, Python standard library only, keeps a cache of your Jira Server / Data Center board so every click answers instantly. Free software by Yann Robert, MIT license.">
+<meta name="description" content="Camelopard is a faster alternative to the Jira web UI for your sprint board. A small local proxy, Python 3.8+ standard library only, keeps a cache of your Jira Server / Data Center board so every click answers from your machine. Jira Cloud is not supported yet. Free software by Yann Robert, MIT license.">
 <meta name="author" content="Yann Robert">
 <link rel="canonical" href="https://yannrobert.github.io/camelopard/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Camelopard: a fast sprint board for Jira">
-<meta property="og:description" content="A blazing-fast alternative to the Jira web UI for your sprint board, for Jira Server and Data Center.">
+<meta property="og:description" content="A faster alternative to the Jira web UI for your sprint board, for Jira Server and Data Center.">
 <meta property="og:url" content="https://yannrobert.github.io/camelopard/">
 <meta property="og:image" content="https://yannrobert.github.io/camelopard/board-dark.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Camelopard",
-  "description": "A blazing-fast alternative to the Jira web UI for your sprint board, for Jira Server and Data Center.",
+  "description": "A faster alternative to the Jira web UI for your sprint board, for Jira Server and Data Center.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Windows, macOS, Linux",
   "license": "https://opensource.org/licenses/MIT",
@@ -36,7 +36,7 @@
 <main>
   <header>
     <h1>Camelopard</h1>
-    <p class="lede">A blazing-fast alternative to the Jira web UI for your sprint board, on Jira Server and Data Center.</p>
+    <p class="lede">A faster alternative to the Jira web UI for your sprint board, on Jira Server and Data Center. Jira Cloud is not supported yet.</p>
     <p class="byline">Free software, MIT license. Created by <a href="https://github.com/YannRobert">Yann Robert</a>.</p>
     <div class="actions">
       <a class="button primary" href="https://github.com/YannRobert/camelopard">Get it on GitHub</a>
@@ -55,19 +55,30 @@
   <ul class="features">
     <li><h2>Every click answers instantly</h2><p>A small proxy on your machine keeps a local copy of the board and refreshes it in the background: the page reads the copy, never waits for Jira.</p></li>
     <li><h2>Far fewer Jira requests</h2><p>The whole board comes in one call, changed issues only in between. A counter shows the load put on Jira.</p></li>
-    <li><h2>Nothing to install</h2><p>Python's standard library only, no framework, no build. It starts with a double-click, without administrator rights, on Windows, macOS and Linux.</p></li>
+    <li><h2>Python 3.8+ only</h2><p>No dependency, no framework, no build, no administrator rights. It starts with a double-click on Windows, macOS and Linux. Without Python on the machine, the python.org installer can install it for the current user only.</p></li>
     <li><h2>Move, rank, assign</h2><p>Drag a card to another column and it walks the workflow for you, through the statuses in between.</p></li>
     <li><h2>Comments and history together</h2><p>The detail panel mixes comments and status changes in one stream, in time order.</p></li>
     <li><h2>Stand-up mode, filters, planned sprints</h2><p>Go round the team person by person, filter by status, reporter, type, priority or epic, and look at the sprints planned ahead.</p></li>
   </ul>
 
   <section>
-    <h2>Try it in one command</h2>
+    <h2>Try it in three commands</h2>
     <p>The demo comes with its own sample board, so you can try everything without a Jira server, a token or any configuration.</p>
     <pre><code>git clone https://github.com/YannRobert/camelopard.git
 cd camelopard
 python3 demo/run.py</code></pre>
     <p>Then point it at your own board: the <a href="https://github.com/YannRobert/camelopard#configuration">README</a> explains the configuration and the personal access token it needs.</p>
+  </section>
+  <section>
+    <h2>Security</h2>
+    <ul>
+      <li>The proxy listens on <code>127.0.0.1</code> only, and rejects any other host name, so that a web page cannot reach it through DNS rebinding.</li>
+      <li>The personal access token comes from the <code>JIRA_PAT</code> environment variable of your user account. Camelopard never writes it to a file and never sends it to the browser.</li>
+      <li>The local copy of the board is written to disk, as JSON files in your user cache directory (<code>%LOCALAPPDATA%</code> on Windows, <code>~/Library/Caches</code> on macOS, <code>~/.cache</code> on Linux). It can be deleted at any time and rebuilds itself.</li>
+      <li>Camelopard talks to your Jira server and nothing else: no telemetry, no third-party service.</li>
+      <li>Only reads are relayed, to the paths the page needs. The only writes are the rank, assignee and status changes you make, built by the proxy from validated values.</li>
+    </ul>
+    <p>The full security model is in the <a href="https://github.com/YannRobert/camelopard#security">README</a>; vulnerabilities are reported privately, as <a href="https://github.com/YannRobert/camelopard/blob/develop/SECURITY.md">SECURITY.md</a> explains.</p>
   </section>
 </main>
 <footer>
