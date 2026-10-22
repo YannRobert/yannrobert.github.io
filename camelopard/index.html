@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Camelopard: a fast sprint board for Jira Server and Data Center</title>
-<meta name="description" content="Camelopard is an instant alternative to the Jira web UI for your sprint board: an issue opens in about 35 ms, the board shows in under 150 ms. A small local proxy, Python 3.8+ standard library only, keeps a cache of your Jira Server / Data Center board so every click answers from your machine. Jira Cloud is not supported yet. Free software by Yann Robert, MIT license.">
+<meta name="description" content="Camelopard is an instant alternative to the Jira web UI for your sprint board: an issue opens in about 35 ms, the board shows in under 150 ms. A small local proxy, Python 3.8+ standard library only, keeps a cache of your Jira Server / Data Center board so every click answers from your machine. Free software by Yann Robert, MIT license.">
 <meta name="author" content="Yann Robert">
 <link rel="canonical" href="https://yannrobert.github.io/camelopard/">
 <meta property="og:type" content="website">
@@ -36,7 +36,7 @@
 <main>
   <header>
     <h1>Camelopard</h1>
-    <p class="lede">An instant alternative to the Jira web UI for your sprint board, on Jira Server and Data Center: an issue opens in about 35&nbsp;ms, the board shows in under 150&nbsp;ms. Jira Cloud is not supported yet.</p>
+    <p class="lede">An instant alternative to the Jira web UI for your sprint board, on Jira Server and Data Center: an issue opens in about 35&nbsp;ms, the board shows in under 150&nbsp;ms.</p>
     <p class="byline">Free software, MIT license. Created by <a href="https://github.com/YannRobert">Yann Robert</a>.</p>
     <div class="actions">
       <a class="button primary" href="https://github.com/YannRobert/camelopard">Get it on GitHub</a>
@@ -94,6 +94,13 @@ python3 demo/run.py</code></pre>
       <li>Only reads are relayed, to the paths the page needs. The only writes are the rank, assignee and status changes you make, built by the proxy from validated values.</li>
     </ul>
     <p>The full security model is in the <a href="https://github.com/YannRobert/camelopard#security">README</a>; vulnerabilities are reported privately, as <a href="https://github.com/YannRobert/camelopard/blob/develop/SECURITY.md">SECURITY.md</a> explains.</p>
+  </section>
+  <section>
+    <h2>Limits</h2>
+    <ul>
+      <li>Jira Cloud is not supported yet: Camelopard speaks the Jira Server and Data Center API.</li>
+      <li>On the board, you can change the rank, the assignee and the status of an issue. Anything else is edited in Jira, one key away from the detail panel.</li>
+    </ul>
   </section>
 </main>
 <footer>
