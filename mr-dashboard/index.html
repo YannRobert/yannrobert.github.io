@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MisteR Dashboard: a local dashboard of your GitLab merge requests</title>
+<meta name="description" content="MisteR Dashboard shows the open merge requests of a GitLab project with their CI signals: pipeline, SonarQube, mutation testing, unresolved threads, lag behind the target branch. Browser notifications, an offline diff viewer on your local clone, and Claude Code prompts for each merge request. Python 3.11+ standard library only. Free software by Yann Robert, MIT license.">
+<meta name="author" content="Yann Robert">
+<link rel="canonical" href="https://yannrobert.github.io/mr-dashboard/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MisteR Dashboard: your GitLab merge requests at a glance">
+<meta property="og:description" content="The open merge requests of a GitLab project with their CI signals, browser notifications and an offline diff viewer, served from your machine.">
+<meta property="og:url" content="https://yannrobert.github.io/mr-dashboard/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MisteR Dashboard",
+  "description": "A local dashboard of the open merge requests of a GitLab project, with their CI signals and browser notifications.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows (WSL)",
+  "license": "https://opensource.org/licenses/MIT",
+  "codeRepository": "https://github.com/YannRobert/mr-dashboard",
+  "url": "https://yannrobert.github.io/mr-dashboard/",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "author": { "@type": "Person", "name": "Yann Robert", "url": "https://github.com/YannRobert" }
+}
+</script>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<nav class="top"><a href="./" aria-current="page">Home</a><a href="https://github.com/YannRobert/mr-dashboard">GitHub</a></nav>
+<main>
+  <header>
+    <h1>MisteR Dashboard</h1>
+    <p class="lede">The open merge requests of a GitLab project on one page, with what each one waits for: pipeline, SonarQube, mutation testing, unresolved threads, lag behind the target branch.</p>
+    <p class="byline">Free software, MIT license. Created by <a href="https://github.com/YannRobert">Yann Robert</a>.</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/YannRobert/mr-dashboard">Get it on GitHub</a>
+      <a class="button" href="https://github.com/YannRobert/mr-dashboard#running">Read the setup</a>
+    </div>
+  </header>
+
+  <ul class="features">
+    <li><h2>Every signal in one row</h2><p>Pipeline, Sonar quality gate, mutation testing score, unresolved threads, approvals and how far the branch lags behind its target, for every open merge request.</p></li>
+    <li><h2>Notified when it matters</h2><p>A browser notification when your merge request breaks or gets approved, or when the main branch's pipeline fails. Sounds too, one per refresh, the most important one.</p></li>
+    <li><h2>Diffs that work offline</h2><p>Each merge request's diff is computed on your local clone, kept fetched in the background, so it stays readable during a GitLab outage. Commits grouped by push, review progress, line comments published to GitLab.</p></li>
+    <li><h2>Claude Code prompts</h2><p>The AI button prepares a prompt for the merge request: fix what is red, review, explain. Actions come from a catalogue committed in your project; the prompt can be copied or launched in Orca.</p></li>
+    <li><h2>Why did it take so long?</h2><p>The merged view replays the merge requests of the last 7, 30 or 90 days: development time, stabilization time, total duration.</p></li>
+    <li><h2>Python 3.11+ only</h2><p>Standard library, no dependency, no build. A small server on <code>127.0.0.1</code> serves the page and relays GitLab and SonarQube, with a 30&nbsp;s cache shared by all your tabs.</p></li>
+  </ul>
+
+  <section>
+    <h2>Start it</h2>
+    <p>You need git, a local clone of the project to track, and a GitLab token from the <a href="https://gitlab.com/gitlab-org/cli">glab</a> configuration (<code>glab auth login</code> once).</p>
+    <pre><code>git clone https://github.com/YannRobert/mr-dashboard.git
+cd mr-dashboard
+python3 mr_dashboard/server.py \
+    --gitlab-host https://gitlab.example.com \
+    --gitlab-project group/project \
+    --pipeline-branch main \
+    --repo-dir ~/src/project \
+    --no-sonar --no-pit</code></pre>
+    <p>Then open <code>http://localhost:8765/</code>. With SonarQube or mutation testing, the <a href="https://github.com/YannRobert/mr-dashboard#options">options</a> name the server and the CI jobs; <code>start.sh</code> keeps the server running all day from a profile.</p>
+  </section>
+
+  <section>
+    <h2>Screenshots you can share</h2>
+    <p>Demo mode replaces people, titles, branches, labels and comments with fictitious values on screen, and keeps the same fake name for the same person across captures. The data underneath does not change: links and actions still act on the real merge requests.</p>
+  </section>
+
+  <section>
+    <h2>Security</h2>
+    <ul>
+      <li>The server listens on <code>127.0.0.1</code> only and requires a <code>Host</code> of <code>localhost</code> or <code>127.0.0.1</code>, so that a web page cannot reach it through DNS rebinding.</li>
+      <li>The GitLab and SonarQube tokens stay in the server process. The browser never sees them and never talks to GitLab or SonarQube directly.</li>
+      <li>Only reads are relayed. The only writes to GitLab are a line discussion, a reply, and resolving or reopening a thread, each validated before being forwarded.</li>
+      <li>Local actions require a dedicated header and an <code>Origin</code> of the dashboard itself.</li>
+      <li>Comments are rendered from GitLab's HTML after removing anything that could execute in the page.</li>
+    </ul>
+    <p>The full security model is in the <a href="https://github.com/YannRobert/mr-dashboard#security-model">README</a>; vulnerabilities are reported privately, as <a href="https://github.com/YannRobert/mr-dashboard/blob/main/.github/SECURITY.md">SECURITY.md</a> explains.</p>
+  </section>
+
+  <section>
+    <h2>Limits</h2>
+    <ul>
+      <li>One server tracks one GitLab project. For several projects, start one server per project, each on its own port.</li>
+      <li>The mutation testing score is read from a note that a CI job of your project posts on the merge request, in the <a href="https://github.com/YannRobert/mr-dashboard#mutation-report-format">documented format</a>.</li>
+      <li>Launching a prompt in Orca needs the server under WSL with Orca on Windows. Elsewhere, prompts are copied.</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  © 2026 Yann Robert. MisteR Dashboard is released under the <a href="https://github.com/YannRobert/mr-dashboard/blob/main/LICENSE">MIT license</a>.
+  It is not affiliated with or endorsed by GitLab Inc. or SonarSource. GitLab is a trademark of GitLab Inc.
+</footer>
+</body>
+</html>
