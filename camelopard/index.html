@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Camelopard: a fast sprint board for Jira Server and Data Center</title>
-<meta name="description" content="Camelopard is an instant alternative to the Jira web UI for your sprint board: an issue opens in about 35 ms, the board shows in under 150 ms. A small local proxy, Python 3.8+ standard library only, keeps a cache of your Jira Server / Data Center board so every click answers from your machine. Free software by Yann Robert, MIT license.">
+<title>Camelopard: a fast alternative to the Jira UI, for Jira Server and Data Center</title>
+<meta name="description" content="Camelopard is a fast alternative to the Jira web UI for your Scrum board, on Jira Server and Data Center: an issue opens in about 35 ms, the board shows in under 150 ms. Plus a detail panel that leaves the board alone, description changes as a diff, planned sprints as a board and a stand-up mode. Free software, MIT license.">
 <meta name="author" content="Yann Robert">
 <link rel="canonical" href="https://yannrobert.github.io/camelopard/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Camelopard: a fast sprint board for Jira">
-<meta property="og:description" content="An instant alternative to the Jira web UI for your sprint board, for Jira Server and Data Center: an issue opens in about 35 ms.">
+<meta property="og:title" content="Camelopard: a fast alternative to the Jira UI">
+<meta property="og:description" content="A fast alternative to the Jira web UI for your Scrum board, on Jira Server and Data Center: an issue opens in about 35 ms.">
 <meta property="og:url" content="https://yannrobert.github.io/camelopard/">
 <meta property="og:image" content="https://yannrobert.github.io/camelopard/board-dark.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Camelopard",
-  "description": "An instant alternative to the Jira web UI for your sprint board, for Jira Server and Data Center.",
+  "description": "A fast alternative to the Jira web UI for your Scrum board, on Jira Server and Data Center.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Windows, macOS, Linux",
   "license": "https://opensource.org/licenses/MIT",
@@ -36,7 +36,7 @@
 <main>
   <header>
     <h1>Camelopard</h1>
-    <p class="lede">An instant alternative to the Jira web UI for your sprint board, on Jira Server and Data Center: an issue opens in about 35&nbsp;ms, the board shows in under 150&nbsp;ms.</p>
+    <p class="lede">A fast alternative to the Jira web UI for your Scrum board, on Jira Server and Data Center. It responds instantly: an issue opens in about 35&nbsp;ms, the board shows in under 150&nbsp;ms. On top of the speed, it brings features that Jira's board lacks.</p>
     <p class="byline">Free software, MIT license. Created by <a href="https://github.com/YannRobert">Yann Robert</a>.</p>
     <div class="actions">
       <a class="button primary" href="https://github.com/YannRobert/camelopard">Get it on GitHub</a>
@@ -52,14 +52,47 @@
     <figcaption>A sprint board in Camelopard, here on the demo dataset. <a href="tour.html">Take the tour</a>.</figcaption>
   </figure>
 
-  <ul class="features">
-    <li><h2>Every click answers instantly</h2><p>A small proxy on your machine keeps a local copy of the board and refreshes it in the background: once the board has been loaded, the page reads the copy and never waits for Jira.</p></li>
-    <li><h2>Far fewer Jira requests</h2><p>The whole board comes in one call, changed issues only in between. A counter shows the load put on Jira.</p></li>
-    <li><h2>Python 3.8+ only</h2><p>No dependency, no framework, no build, no administrator rights. It starts with a double-click on Windows, macOS and Linux. Without Python on the machine, the python.org installer can install it for the current user only.</p></li>
-    <li><h2>Move, rank, assign</h2><p>Drag a card to another column and it walks the workflow for you, through the statuses in between.</p></li>
-    <li><h2>Comments and history together</h2><p>The detail panel mixes comments and status changes in one stream, in time order.</p></li>
-    <li><h2>Stand-up mode, filters, planned sprints</h2><p>Go round the team person by person, filter by status, reporter, type, priority or epic, and look at the sprints planned ahead.</p></li>
-  </ul>
+  <section>
+    <h2>Features</h2>
+    <div class="columns">
+      <div>
+        <h3>What Jira's board doesn't do</h3>
+        <ul>
+          <li><strong>A detail panel that leaves the board alone</strong>: it opens over the board, on the side away from the card, so the board never resizes, reflows or flickers. Or dock it at the bottom, in three columns: the whole issue in sight, without scrolling.</li>
+          <li><strong>No login page, no SSO redirects</strong>: Camelopard reaches Jira with your personal access token, so the board is there as soon as the tab opens, even when the browser restores yesterday's tabs. No sign-in form, no wait for the company's single sign-on.</li>
+          <li><strong>Description changes as a real diff</strong>: where Jira strikes the whole old text through and repeats the new one, Camelopard shows only the lines that changed, with the changed words marked.</li>
+          <li><strong>Planned sprints as a board</strong>: a sprint planned ahead opens in the board's columns, not as a list in the backlog.</li>
+          <li><strong>Stand-up mode</strong>: go round the team person by person, with what each one did since the previous working day.</li>
+          <li><strong>Less scrolling</strong>: when the window or the zoom leaves room, cards sit side by side within each column.</li>
+          <li><strong>The keyboard for everything</strong>: move between cards with the arrows, jump to a section of the detail by its first letter, assign with <kbd>A</kbd>; <kbd>?</kbd> lists the shortcuts.</li>
+          <li><strong>Drag across the workflow</strong>: drop a card in any column and it walks the statuses in between for you.</li>
+          <li><strong>Since your last visit</strong>: the column moves, assignments and comments others made while you were away, and browser notifications when someone changes an issue assigned to you.</li>
+          <li><strong>Search as you type</strong>, with keywords: <code>@me</code>, <code>type:bug</code>, <code>-label:back</code>.</li>
+          <li><strong>Your own views</strong>: on a board of many columns, each role picks the columns it works on, in your own configuration, without Jira admin rights.</li>
+          <li><strong>Several cards at once</strong>: pick them, copy them as a list with links to Jira, assign or move them together.</li>
+          <li><strong>Links stay in the panel</strong>: a link to another issue opens it in the panel, not in a new Jira tab.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>And everything you already use in Jira</h3>
+        <ul>
+          <li>The board's columns, epics and quick filters, as configured in Jira.</li>
+          <li>Filters by status, reporter, type, priority and epic.</li>
+          <li>The issue's fields, description, links and attachments.</li>
+          <li>Comments and history together, in time order, as in Jira's <em>All</em> tab.</li>
+          <li>Rank, status and assignee changed from the board.</li>
+          <li>Active and planned sprints of the board.</li>
+          <li>Light and dark themes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>A day without opening Jira</h2>
+    <p>Reading the board, following the sprint, moving an issue, assigning it: Camelopard covers most of what a day asks of Jira. Jira itself is only needed for the rest, such as creating an issue or editing other fields: some hours into the day, and some days not at all.</p>
+    <p>The rest can skip the browser too. An AI coding agent, such as Claude Code or Codex, can write a description or create an issue through Jira's API, with the same personal access token.</p>
+  </section>
 
   <section>
     <h2>Try it in three commands</h2>
@@ -71,34 +104,45 @@ python3 demo/run.py</code></pre>
   </section>
   <section>
     <h2>Measured, not promised</h2>
-    <p>Below 100&nbsp;ms, a response feels instant. Median times over repeated runs of the demo:</p>
+    <p>Jira's board feels slow? Below 100&nbsp;ms, a response feels instant. Median times over repeated runs of the demo:</p>
     <table>
       <thead><tr><th>Action</th><th>Median</th><th>9 runs out of 10</th></tr></thead>
       <tbody>
         <tr><td>Open an issue (click to detail drawn)</td><td>35&nbsp;ms</td><td>90&nbsp;ms or less</td></tr>
         <tr><td>Reload the board (to first card drawn)</td><td>85&nbsp;ms</td><td>under 90&nbsp;ms</td></tr>
         <tr><td>Reload the board, Jira slowed down by 1.5&nbsp;s</td><td>140&nbsp;ms</td><td>under 160&nbsp;ms</td></tr>
-        <tr><td>Proxy answer for an issue</td><td>2&nbsp;ms</td><td>2&nbsp;ms</td></tr>
+        <tr><td>Local server answer for an issue</td><td>2&nbsp;ms</td><td>2&nbsp;ms</td></tr>
       </tbody>
     </table>
-    <p>Measured with headless Chromium on a Linux laptop (Intel Core i7-10750H), against the demo. The first visit from a new browser waits for Jira once, to fetch the board; after that, the board and the issues come from the local copy.</p>
+    <p>Measured with headless Chromium on a Linux laptop (Intel Core i7-10750H), against the demo. The first visit from a new browser waits for Jira once, to fetch the board; after that, the board and the issues come from the cache.</p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p>A small server runs on your machine and keeps the board in a cache, refreshed in the background, much like a browser cache. Once the board has been loaded, the page reads the cache and never waits for Jira.</p>
+    <ul>
+      <li>Far fewer Jira requests: the whole board comes in one call, then only the issues that changed. A counter shows the load put on Jira.</li>
+      <li>Nothing to install but Python 3, which most Linux machines already have: no dependency, no framework, no build, no administrator rights. Start it from a terminal, or let it start with the computer, as a systemd service, a macOS LaunchAgent or a Windows startup shortcut. Without Python on the machine, the python.org installer can install it for the current user only.</li>
+    </ul>
+    <p>The <a href="https://github.com/YannRobert/camelopard#requirements">README</a> gives the exact requirements.</p>
   </section>
 
   <section>
     <h2>Security</h2>
     <ul>
-      <li>The proxy listens on <code>127.0.0.1</code> only, and rejects any other host name, so that a web page cannot reach it through DNS rebinding.</li>
+      <li>The local server listens on <code>127.0.0.1</code> only, and rejects any other host name, so that a web page cannot reach it through DNS rebinding.</li>
       <li>The personal access token comes from the <code>JIRA_PAT</code> environment variable of your user account. Camelopard never writes it to a file and never sends it to the browser.</li>
-      <li>The local copy of the board is written to disk, as JSON files in your user cache directory (<code>%LOCALAPPDATA%</code> on Windows, <code>~/Library/Caches</code> on macOS, <code>~/.cache</code> on Linux). It can be deleted at any time and rebuilds itself.</li>
+      <li>The cache is written to disk, as JSON files in your user cache directory (<code>%LOCALAPPDATA%</code> on Windows, <code>~/Library/Caches</code> on macOS, <code>~/.cache</code> on Linux). It can be deleted at any time and rebuilds itself.</li>
       <li>Camelopard talks to your Jira server and nothing else: no telemetry, no third-party service.</li>
-      <li>Only reads are relayed, to the paths the page needs. The only writes are the rank, assignee and status changes you make, built by the proxy from validated values.</li>
+      <li>Only reads are relayed, to the paths the page needs. The only writes are the rank, assignee and status changes you make, built by the local server from validated values.</li>
     </ul>
     <p>The full security model is in the <a href="https://github.com/YannRobert/camelopard#security">README</a>; vulnerabilities are reported privately, as <a href="https://github.com/YannRobert/camelopard/blob/develop/SECURITY.md">SECURITY.md</a> explains.</p>
   </section>
   <section>
-    <h2>Limits</h2>
+    <h2>Current limits</h2>
     <ul>
       <li>Jira Cloud is not supported yet: Camelopard speaks the Jira Server and Data Center API.</li>
+      <li>Camelopard shows the sprints of a Scrum board, active and planned. Kanban boards, which have no sprints, are not supported yet.</li>
       <li>On the board, you can change the rank, the assignee and the status of an issue. Anything else is edited in Jira, one key away from the detail panel.</li>
     </ul>
   </section>
