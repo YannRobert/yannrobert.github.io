@@ -119,7 +119,7 @@ python3 demo/run.py</code></pre>
 
   <section>
     <h2>How it works</h2>
-    <p>A small server runs on your machine and keeps the board in a cache, refreshed in the background, much like a browser cache. Once the board has been loaded, the page reads the cache and never waits for Jira.</p>
+    <p>A very small server runs on your machine and keeps the board in a cache, refreshed in the background, much like a browser cache. Once the board has been loaded, the page reads the cache and never waits for Jira.</p>
     <ul>
       <li>Far fewer Jira requests: the whole board comes in one call, then only the issues that changed. A counter shows the load put on Jira.</li>
       <li>Nothing to install but Python 3, which most Linux machines already have: no dependency, no framework, no build, no administrator rights. Start it from a terminal, or let it start with the computer, as a systemd service, a macOS LaunchAgent or a Windows startup shortcut. Without Python on the machine, the python.org installer can install it for the current user only.</li>
