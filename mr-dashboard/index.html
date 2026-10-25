@@ -75,6 +75,15 @@
   </section>
 
   <section>
+    <h2>Try it without a GitLab</h2>
+    <p>The demo comes with its own fake GitLab and SonarQube and an invented project, an online bookshop, so you can try everything without a server, a token or any configuration.</p>
+    <pre><code>git clone https://github.com/YannRobert/mr-dashboard.git
+cd mr-dashboard
+python3 demo/run.py</code></pre>
+    <p>Fourteen open merge requests, with their pipelines, review threads and a real git repository for the diffs. The team keeps working while it runs: approvals come in, the main branch breaks and recovers, a merge request gets merged. A page of the fake GitLab breaks it on demand, to see the dashboard through an outage.</p>
+  </section>
+
+  <section>
     <h2>Start it</h2>
     <p>You need git, a local git clone of the project to track, and a GitLab token from the <a href="https://gitlab.com/gitlab-org/cli">glab</a> configuration (<code>glab auth login</code> once).</p>
     <pre><code>git clone https://github.com/YannRobert/mr-dashboard.git
