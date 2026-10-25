@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tour of MisteR Dashboard: a GitLab merge request dashboard</title>
+<meta name="description" content="See MisteR Dashboard at work: the open merge requests and their signals, the review's rhythm, the diff and its review notes, large diffs, comments, AI prompts, the main branch pipeline and lead time.">
+<meta name="author" content="Yann Robert">
+<link rel="canonical" href="https://yannrobert.github.io/mr-dashboard/tour.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tour of MisteR Dashboard">
+<meta property="og:description" content="The merge requests and their signals, the diff and its review notes, comments and lead time, in pictures.">
+<meta property="og:url" content="https://yannrobert.github.io/mr-dashboard/tour.html">
+<meta property="og:image" content="https://yannrobert.github.io/mr-dashboard/tour/dashboard.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<nav class="top"><a href="./">Home</a><a href="tour.html" aria-current="page">Tour</a><a href="https://github.com/YannRobert/mr-dashboard">GitHub</a></nav>
+<main>
+  <header>
+    <h1>Tour</h1>
+    <p class="lede">MisteR Dashboard at work on the demo project, an invented online bookshop: the merge requests and what each one waits for, the diff and its review, comments and lead time.</p>
+  </header>
+
+  <figure>
+    <video src="tour/tour.webm" poster="tour/dashboard.png" width="1440" height="900" controls autoplay muted loop playsinline preload="metadata"></video>
+    <figcaption>From light to dark and back, through the open merge requests, the review's rhythm of three of them, a diff and its review notes, a merge request's comments, then the prompt that fixes what is red.</figcaption>
+  </figure>
+
+  <div class="shots">
+    <section class="shot">
+      <div class="text"><h2>What each merge request waits for</h2><p>Every open merge request on one line: its commits, comments and unresolved threads, its pipeline, Sonar issues, coverage and remaining mutants, how far it lags behind its target, and when it last moved.</p></div>
+      <img src="tour/dashboard.png" width="1440" height="900" loading="lazy" alt="The dashboard listing the open merge requests of the demo project, with their review, quality and lag columns.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>The review's rhythm</h2><p>Hover the commit count: the commits pile up over time, with the reviewers' comments and the author's answers on the curve. Whether fixes follow the comments shows at a glance.</p></div>
+      <img src="tour/review-rhythm.png" width="1440" height="900" loading="lazy" alt="The commit activity chart of a merge request, its cumulative commits with comments by others and by the author.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>A diff that reads well</h2><p>The commits grouped by push, the file list beside the code, renamed files, and the words that changed marked within each line.</p></div>
+      <img src="tour/diff.png" width="1440" height="900" loading="lazy" alt="The diff of a merge request side by side, with its pushes, its files and a renamed file.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Review notes in the diff</h2><p>The threads sit on their lines, on either side, and the arrows go from one to the next. Reply, resolve or reopen without leaving the diff; quotes, code and lists show as in GitLab.</p></div>
+      <img src="tour/diff-notes.png" width="1440" height="900" loading="lazy" alt="Review threads shown on their lines in the diff, one on a removed line, with Reply and Reopen buttons.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Large diffs too</h2><p>Twenty-five files and ten thousand changed lines: each file is highlighted as it comes into view, and a very large one waits for a click.</p></div>
+      <img src="tour/large-diff.png" width="1440" height="900" loading="lazy" alt="A diff of twenty-five catalogue files, its file list scrolling on the left.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Comments</h2><p>The merge request's comments as GitLab renders them, screenshots included, with a reply on each.</p></div>
+      <img src="tour/comments.png" width="1440" height="900" loading="lazy" alt="The comments page of a merge request: a mutation testing report, a long comment and one with a screenshot.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>A prompt for your coding agent</h2><p>The AI button writes the prompt that fixes what is red, from the failed pipeline, the surviving mutants and the unresolved threads, or runs your project's own actions, such as a review.</p></div>
+      <img src="tour/ai.png" width="1440" height="900" loading="lazy" alt="The AI dialog showing the fix prompt of a merge request with a failed pipeline and a surviving mutant.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>The main branch</h2><p>The latest pipeline of the main branch at the bottom, its stages and jobs, and its build times over the last builds.</p></div>
+      <img src="tour/pipeline.png" width="1440" height="900" loading="lazy" alt="The main branch pipeline expanded, with its build time chart and its stages.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Lead time</h2><p>The merged ones, with the same review indicators and how long each took to develop, to stabilize and in total.</p></div>
+      <img src="tour/merged.png" width="1440" height="900" loading="lazy" alt="The merged view, listing merge requests with their total, development and stabilisation durations.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>Light or dark</h2><p>Every page comes in both themes; the browser remembers the choice.</p></div>
+      <img src="tour/dashboard-dark.png" width="1440" height="900" loading="lazy" alt="The dashboard in the dark theme.">
+    </section>
+    <section class="shot">
+      <div class="text"><h2>The diff in the dark</h2><p>The same diff, in the dark theme.</p></div>
+      <img src="tour/diff-dark.png" width="1440" height="900" loading="lazy" alt="The diff of a merge request in the dark theme.">
+    </section>
+  </div>
+</main>
+<footer>
+  © 2026 Yann Robert. MisteR Dashboard is released under the <a href="https://github.com/YannRobert/mr-dashboard/blob/main/LICENSE">MIT license</a>.
+  It is not affiliated with or endorsed by GitLab Inc. or SonarSource. GitLab is a trademark of GitLab Inc.
+</footer>
+</body>
+</html>

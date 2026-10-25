@@ -11,6 +11,8 @@
 <meta property="og:title" content="MisteR Dashboard: a GitLab merge request dashboard">
 <meta property="og:description" content="Every open merge request of a GitLab project with its CI signals, browser notifications and diffs that work during a GitLab outage.">
 <meta property="og:url" content="https://yannrobert.github.io/mr-dashboard/">
+<meta property="og:image" content="https://yannrobert.github.io/mr-dashboard/tour/dashboard.png">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -22,6 +24,7 @@
   "license": "https://opensource.org/licenses/MIT",
   "codeRepository": "https://github.com/YannRobert/mr-dashboard",
   "url": "https://yannrobert.github.io/mr-dashboard/",
+  "image": "https://yannrobert.github.io/mr-dashboard/tour/dashboard.png",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
   "author": { "@type": "Person", "name": "Yann Robert", "url": "https://github.com/YannRobert" }
 }
@@ -29,7 +32,7 @@
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<nav class="top"><a href="./" aria-current="page">Home</a><a href="https://github.com/YannRobert/mr-dashboard">GitHub</a></nav>
+<nav class="top"><a href="./" aria-current="page">Home</a><a href="tour.html">Tour</a><a href="https://github.com/YannRobert/mr-dashboard">GitHub</a></nav>
 <main>
   <header>
     <h1>MisteR Dashboard</h1>
@@ -37,9 +40,14 @@
     <p class="byline">Free software, MIT license. Created by <a href="https://github.com/YannRobert">Yann Robert</a>.</p>
     <div class="actions">
       <a class="button primary" href="https://github.com/YannRobert/mr-dashboard">Get it on GitHub</a>
-      <a class="button" href="https://github.com/YannRobert/mr-dashboard#running">Read the setup</a>
+      <a class="button" href="tour.html">Take the tour</a>
     </div>
   </header>
+
+  <figure>
+    <img src="tour/dashboard.png" width="1440" height="900" alt="MisteR Dashboard listing the open merge requests of a project, each with its commits, comments, unresolved threads, pipeline, Sonar issues, coverage, remaining mutants and lag behind the target branch.">
+    <figcaption>The open merge requests of the demo project, an invented online bookshop. <a href="tour.html">Take the tour</a>.</figcaption>
+  </figure>
 
   <section>
     <h2>Features</h2>
