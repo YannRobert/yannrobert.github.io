@@ -54,7 +54,7 @@
           <li><strong>Notified when it matters</strong>: a browser notification when your merge request breaks or gets approved, or when the main branch's pipeline fails, with a sound for each: a bell for an approval, a siren for a failed main branch, an arpeggio for a merge.</li>
           <li><strong>AI prompts for a merge request</strong>: one button writes the prompt that fixes what is red, from the CI signals and the unresolved threads, or runs the actions your project defines, such as a review. Copy it into your coding agent, or launch it in Orca.</li>
           <li><strong>Lead time, merge request by merge request</strong>: look back at what was merged, with the same review indicators as the open ones, commits, comments, threads and the review's chart, plus how long each took to develop, to stabilize and in total.</li>
-          <li><strong>Diffs that survive a GitLab outage</strong>: each diff is computed on your local clone, kept fetched in the background.</li>
+          <li><strong>Diffs that survive a GitLab outage</strong>: each diff is computed on your local git clone, kept fetched in the background.</li>
           <li><strong>No login page, no SSO redirects</strong>: the dashboard reaches GitLab with your token, so it is there as soon as the tab opens, even when the browser restores yesterday's tabs.</li>
           <li><strong>Search across merge requests</strong>: every word must match, a comma separates alternatives, <code>!249</code> targets one merge request.</li>
         </ul>
@@ -76,7 +76,7 @@
 
   <section>
     <h2>Start it</h2>
-    <p>You need git, a local clone of the project to track, and a GitLab token from the <a href="https://gitlab.com/gitlab-org/cli">glab</a> configuration (<code>glab auth login</code> once).</p>
+    <p>You need git, a local git clone of the project to track, and a GitLab token from the <a href="https://gitlab.com/gitlab-org/cli">glab</a> configuration (<code>glab auth login</code> once).</p>
     <pre><code>git clone https://github.com/YannRobert/mr-dashboard.git
 cd mr-dashboard
 python3 mr_dashboard/server.py \
@@ -90,10 +90,10 @@ python3 mr_dashboard/server.py \
 
   <section>
     <h2>How it works</h2>
-    <p>A very small server runs on your machine. It serves the page, relays the GitLab and SonarQube APIs, and keeps the local clone fetched. It refreshes the merge requests every 5 minutes, and a reload redisplays what the browser already has without asking GitLab again.</p>
+    <p>A very small server runs on your machine. It serves the page, relays the GitLab and SonarQube APIs, and keeps the local git clone fetched. It refreshes the merge requests every 5 minutes, and a reload redisplays what the browser already has without asking GitLab again.</p>
     <ul>
       <li>Fewer GitLab requests: reads are cached for 30 seconds and shared by all your tabs. A counter shows the load put on GitLab over the last 1, 5 and 15 minutes.</li>
-      <li>When GitLab is unreachable, each merge request keeps its last known signals, marked as stale, and the commit counts come from the local clone.</li>
+      <li>When GitLab is unreachable, each merge request keeps its last known signals, marked as stale, and the commit counts come from the local git clone.</li>
       <li>Nothing to install but Python 3 and git: no dependency, no framework, no build, no administrator rights.</li>
     </ul>
     <p>The <a href="https://github.com/YannRobert/mr-dashboard#prerequisites">README</a> gives the exact requirements.</p>
