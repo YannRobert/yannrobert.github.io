@@ -60,7 +60,7 @@
           <li><strong>The review's rhythm, in one chart</strong>: hover the commit count to see the commits pile up over time, with the reviewers' comments and the author's answers placed on the curve. Do reviews follow the pushes quickly? Do fixes follow the comments? It shows at a glance.</li>
           <li><strong>Review only what changed</strong>: the diff groups commits by push, and shows the last push alone or only what arrived since you last read it.</li>
           <li><strong>Notified when it matters</strong>: a browser notification when your merge request breaks or gets approved, or when the main branch's pipeline fails, with a sound for each: a bell for an approval, a siren for a failed main branch, an arpeggio for a merge.</li>
-          <li><strong>AI prompts for a merge request</strong>: one button writes the prompt that fixes what is red, from the CI signals and the unresolved threads, or runs the actions your project defines, such as a review. Copy it into your coding agent, or launch it in Orca.</li>
+          <li><strong>AI prompts for a merge request</strong>: one button writes the prompt that fixes what is red, from the CI signals and the unresolved threads, or runs the actions your project defines, such as a review. Copy it into your coding agent, or launch it in a new tab of Orca, herdr or your terminal: GNOME Terminal, Terminator, xterm, tmux and others.</li>
           <li><strong>Lead time, merge request by merge request</strong>: look back at what was merged, with the same review indicators as the open ones, commits, comments, threads and the review's chart, plus how long each took to develop, to stabilize and in total.</li>
           <li><strong>Diffs that survive a GitLab outage</strong>: each diff is computed on your local git clone, kept fetched in the background.</li>
           <li><strong>No login page, no SSO redirects</strong>: the dashboard reaches GitLab with your token, so it is there as soon as the tab opens, even when the browser restores yesterday's tabs.</li>
@@ -133,7 +133,7 @@ python3 mr_dashboard/server.py \
     <ul>
       <li>One dashboard tracks one GitLab project. For several projects, start one per project, each on its own port.</li>
       <li>The mutation testing score is read from a note that a CI job of your project posts on the merge request, in the <a href="https://github.com/YannRobert/mr-dashboard#mutation-report-format">documented format</a>.</li>
-      <li>Launching a prompt in Orca starts Claude Code. Without Orca, prompts are copied.</li>
+      <li>A launched prompt starts Claude Code, in the one place chosen when the dashboard starts; Orca when nothing is chosen and Orca is found.</li>
       <li>Merging, approving and editing a merge request happen in GitLab, one click away.</li>
     </ul>
   </section>
